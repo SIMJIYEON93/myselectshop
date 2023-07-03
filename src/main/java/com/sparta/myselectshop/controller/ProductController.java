@@ -4,8 +4,11 @@ import com.sparta.myselectshop.dto.ProductMypriceRequestDto;
 import com.sparta.myselectshop.dto.ProductRequestDto;
 import com.sparta.myselectshop.dto.ProductResponseDto;
 import com.sparta.myselectshop.service.ProductService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -26,7 +29,11 @@ public class ProductController {
     public ProductResponseDto updateaProducts(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto){
         //RequestBody에서 희망데이터(ProductMypriceRequestDto) 받아
         return productService.updateProduct(id,requestDto);
+    }
 
+    @GetMapping("/products")
+    public List<ProductResponseDto> getProduct(){
 
+        return productService.getProducts();
     }
 }
