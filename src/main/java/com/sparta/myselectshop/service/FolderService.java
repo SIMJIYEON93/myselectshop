@@ -39,10 +39,11 @@ public class FolderService {
 
         for (Folder folder : folderList) {
                 responseDtoList.add(new FolderResponseDto(folder));
-            
         }
         return responseDtoList;
     }
+
+
     private boolean isExistFolderName(String folderName, List<Folder> existFolderList) {
         for (Folder existFolder : existFolderList) {
             if(folderName.equals(existFolder.getName())){
