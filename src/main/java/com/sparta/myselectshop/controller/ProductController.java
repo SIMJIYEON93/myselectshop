@@ -31,7 +31,7 @@ public class ProductController {
     }
 
     //관심상품 희망 최저가(update)등록하기 API
-    @PutMapping("/productzs/{id}") //pathvariavle방식
+    @PutMapping("/products/{id}") //pathvariavle방식
     public ProductResponseDto updateaProducts(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto){
         //RequestBody에서 희망데이터(ProductMypriceRequestDto) 받아
         return productService.updateProduct(id,requestDto);
