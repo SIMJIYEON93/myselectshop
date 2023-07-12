@@ -6,7 +6,7 @@ import com.sparta.myselectshop.dto.ProductRequestDto;
 import com.sparta.myselectshop.dto.ProductResponseDto;
 import com.sparta.myselectshop.entity.*;
 import com.sparta.myselectshop.naver.dto.ItemDto;
-import com.sparta.myselectshop.repository.FolderRespository;
+import com.sparta.myselectshop.repository.FolderRepository;
 import com.sparta.myselectshop.repository.ProductFolderRepository;
 import com.sparta.myselectshop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,7 +26,7 @@ import java.util.Optional;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final FolderRespository folderRespository;
+    private final FolderRepository folderRepository;
     private final ProductFolderRepository productFolderRepository;
 
     public static final int MIN_MY_PRICE=100; //myprice는 100원 이상이여야 하는 제약조건
@@ -97,7 +97,7 @@ public class ProductService {
         Product product= productRepository.findById(productId).orElseThrow(
                 ()-> new NullPointerException("해당 상품이 존재하지 않습니다.")
         );
-        Folder folder = folderRespository.findById(folderId).orElseThrow(
+        Folder folder = folderRepository.findById(folderId).orElseThrow(
                 ()-> new NullPointerException("해당폴더가 존재하지 않습니다.")
         );
 
